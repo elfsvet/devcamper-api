@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
+// logger from third party libraries
 const morgan = require('morgan');
 const connectDB = require('./config/db');
 
@@ -33,7 +34,7 @@ const server = app.listen(
 
 // Handle unhandled promise rejection
 process.on('unhandledRejection', (err, promise) => {
-  console.log(`Error: ${err.message}`);
+  console.log(`Error: ${err.message}`.red);
   // close server & exit process
   server.close(() => process.exit(1));
 });
