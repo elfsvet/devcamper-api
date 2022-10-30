@@ -1,4 +1,7 @@
+// file to seed the db with data
+// fs to get access to the file with json file
 const fs = require('fs');
+// mongoose to connect to the data base
 const mongoose = require('mongoose');
 const colors = require('colors');
 const dotenv = require('dotenv');
@@ -7,8 +10,10 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config/config.env' });
 
 // load models
-
+// DATA for bootcamps
 const Bootcamp = require('./models/Bootcamp');
+// DATA for courses
+const Course = require('./models/Course');
 
 // Connect to db
 mongoose.connect(process.env.MONGO_URI, {
@@ -24,10 +29,16 @@ const bootcamps = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/bootcamps.json`, 'utf-8')
 );
 
+
+const courses = JSON.parse(
+  fs.readFileSync(`${__dirname}/_data/courses.json`, 'utf-8')
+);
+
 // import into db
 const importData = async () => {
   try {
     await Bootcamp.create(bootcamps);
+    await Course.create(courses);
     console.log('Data imported...'.green.inverse);
     process.exit();
   } catch (err) {
@@ -39,6 +50,7 @@ const importData = async () => {
 const deleteData = async () => {
   try {
     await Bootcamp.deleteMany();
+    await Course.deleteMany();
     console.log('Data Destroyed...'.red.inverse);
     process.exit();
   } catch (err) {
