@@ -1,6 +1,6 @@
 # DevCamper API
 
-> Backend API for DevCamper application, which is a bootcamp directory website
+> Backend API for DevCamper application, which is a bootcamp directory website [_link_](https://devcamperstepan.click)
 
 ## Usage
 
