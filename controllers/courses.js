@@ -4,6 +4,7 @@ const asyncHandler = require('../middleware/async');
 const Bootcamp = require('../models/Bootcamp');
 
 // @desc    Get all courses
+// @route   GET /api/v1/courses
 // @route   GET /api/v1/bootcamps/:bootcampId/courses
 // @access  Public
 
