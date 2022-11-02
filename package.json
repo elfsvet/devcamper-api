@@ -8,7 +8,8 @@
     "start": "NODE_ENV=production node server",
     "dev": "nodemon server",
     "seed": "node seeder -i",
-    "del-seed": "node seeder -d"
+    "d-seed": "node seeder -d",
+    "r-seed": "node seeder -d && node seeder -i"
   },
   "keywords": [],
   "author": "STEPAN MATYSIK",

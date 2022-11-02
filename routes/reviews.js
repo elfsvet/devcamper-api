@@ -2,7 +2,8 @@ const express = require('express');
 
 const {
   getReviews,
- getReview
+ getReview,
+ addReview
 } = require('../controllers/reviews');
 
 const Course = require('../models/Review');
@@ -20,7 +21,7 @@ router
     advancedResults(Review, { path: 'bootcamp', select: 'name description' }),
     getReviews
   )
-//   .post(protect, authorize('publisher', 'admin'), addReview);
+  .post(protect, authorize('user', 'admin'), addReview);
 router
   .route('/:id')
   .get(getReview)

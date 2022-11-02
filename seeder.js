@@ -16,10 +16,10 @@ const Bootcamp = require('./models/Bootcamp');
 const Course = require('./models/Course');
 
 // DATA user model
-const User = require('./models/User')
+const User = require('./models/User');
 
 // DATA Review model
-const Review = require('./models/Review')
+const Review = require('./models/Review');
 
 // Connect to db
 mongoose.connect(process.env.MONGO_URI, {
@@ -34,7 +34,6 @@ mongoose.connect(process.env.MONGO_URI, {
 const bootcamps = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/bootcamps.json`, 'utf-8')
 );
-
 
 const courses = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/courses.json`, 'utf-8')
