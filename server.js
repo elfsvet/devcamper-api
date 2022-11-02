@@ -47,7 +47,7 @@ app.use(fileupload());
 app.use(mongoSanitize());
 
 // set security headers
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 
 // Prevent xss attacks (cross site scripting) security headers
 app.use(xss());
